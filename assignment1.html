@@ -1,0 +1,300 @@
+<html>
+    <head>
+        <title>Assignment 1-CS641</title>
+    
+        <script>
+            function convertSpeed(){
+                let getKMHP = document.getElementById("speed").value;
+                let mph = Math.trunc(getKMHP*0.6213); //to get the closest round number
+                let mphHOut = document.getElementById("mphH");
+                let mphOut = document.getElementById("mph");
+
+                if(mph>=300)
+                    mphHOut.innerHTML = `Your speed is "ASTRONOMICAL", slow down!!`;
+                else
+                    mphOut.innerHTML = `Your speed is ${mph} mph`;   
+            }
+
+            function winner(){
+                let selc = document.getElementsByName("winner");
+                
+                    for(i=0; i<selc.length;i++){
+                        if(selc[0].checked)
+                            document.getElementById("win-merc").innerHTML = `You selected ${selc[0].value}. This team has a good chance of winning this year's Constructors' Championship`; 
+                        else if (selc[1].checked)
+                            document.getElementById("win-merc").innerHTML = `You selected ${selc[1].value}. This team has no chance of winning this year's Constructors' Championship`; 
+                        else if (selc[2].checked)
+                            document.getElementById("win-merc").innerHTML = `You selected ${selc[2].value}. This team has no chance of winning this year's Constructors' Championship`; 
+                        else
+                        document.getElementById("win-merc").innerHTML = `You selected ${selc[3].value}. No other team has a chance of winning this year's Constructors' Championship`; 
+                     }
+                     document.getElementById("tx").innerHTML = `Thank you for participating!`;
+            }
+            
+        </script>
+        
+    </head>
+    
+    <body id="main-body">
+        
+        <style>
+            body{
+                background: #0078D7;
+                font-family: 'Poiret One', cursive;
+            }
+
+            #header{
+                position: relative;
+                padding:10px;
+                margin: auto;
+                font-size: x-large;
+                text-align: center;
+                background: linear-gradient(90deg, rgb(255, 0, 0) 10%, rgb(0, 9, 10) 54%, rgb(221, 212, 212) 100%);
+                color:white;
+            }
+
+            #sub-header{
+                padding:4px;
+                background-color: black;
+                
+            }
+            #sub-sub-header{
+                padding:4px;
+                background-color: black;
+                margin:15px;
+                color:white;
+                font-size:large;
+            }
+            #anim1{
+                margin: 5px;
+                width:30px;
+                height: 30px;
+                position: relative;
+                background:black;
+                opacity: 50%;
+                animation: floating 40s infinite;
+            }
+            #anim2{
+                margin: 5px;
+                width:30px;
+                height: 30px;
+                position: relative;
+                left: 50px;
+                background:white;
+                opacity: 50%;
+                animation: floating 40s infinite;
+            }
+            #anim3{
+                margin: 5px;
+                width:30px;
+                height: 30px;
+                position: relative;
+                top: 50px;
+                background:black;
+                opacity: 50%;
+                animation: floating 40s infinite;
+            }
+            #anim1:hover{
+                background:#F62336
+            }
+            #anim2:hover{
+                background: #FF6611
+            }
+            #anim3:hover{
+                background: #BE0575
+;
+            }
+            @keyframes floating{
+                0% {
+  	                top: 0px;
+                }
+                50% {
+                    top: 1000px;
+                    background:#0078D7;
+                }
+                100%{
+                    top:0px;    
+                }
+            }
+            #image-container{
+                text-align: center;
+            }
+
+            #rbr{
+                Width:500px;
+                box-shadow: 10px 10px 5px 0px rgba(0,0,0,0.75);
+            }
+
+            #rbr:hover{
+                box-shadow: 20px 20px 15px 0px rgba(255, 0, 0);
+                transition: 1s;
+            }
+
+            #speed-cal-sec{
+                padding:25px;
+            }
+
+            #btn1{
+                background-color: #FF6E61;
+                box-shadow: 2px 2px 1px 0px rgba(255, 0, 0);
+                height: 50px;
+            }
+            #btn1:hover{
+                color: #CFCDCC;
+                box-shadow:20px 20px 15px 0px black;
+                transition: 1s;
+            }
+            #mph{
+                color:#27E877;
+                font-weight:bold;
+            }
+            #mphH{
+                color:red;
+                font-weight:bold;
+            }
+            #vid-wrapper{
+                text-align: center;
+            }
+            #leader-board{
+                width: auto;
+                text-align: center;
+                padding: 5px;   
+            }
+            #sel{
+                padding:10px;
+                color:#CCD444;
+                font-size: large;
+            }
+            #win-merc{
+                color: #6112A6;
+            }
+            #btn2{
+                height: 40px;
+            }
+            #btn2:hover{
+                background-color: #FF6E61;
+                transition: 1s;
+            }
+            #tx{
+                color:#A11252;
+            }
+            dd{
+                color: #3CA6A6;
+            }
+            #nav-links{
+                padding:10px;
+                text-align: right;
+            }
+            #official{
+                color: #59FC47;
+            }
+            #official:hover{
+                color: #FF474A;
+                transition:1s;
+            }
+            #teams{
+                color: #59FC47;
+            }
+            #teams:hover{
+                color: #FF474A;
+                transition:1s;
+            }
+            #stand{
+                color: #59FC47;
+            }
+            #stand:hover{
+                color: #FF474A;
+                transition:1s;
+            }
+            .time{
+                color:#5FCF63
+            }
+            .time:hover{
+                color: black;
+                font: bold;
+            }
+
+        </style>
+        
+        <section id="header">
+            <h1>Formula <i>1</i></h1>
+        </section>
+        
+        <section id="sub-header">
+            <section id="sub-sub-header">
+                <h3>BELGIUM GP 2020</h3>  
+            </section>
+        </section>
+
+        <div class="anim">
+            <div id="anim1"></div>
+            <div id="anim2"></div>
+            <div id="anim3"></div>
+        </div>
+        
+        <div id="image-container">
+            <h2>Let's calculate your <i>speed</i></h2>
+            <img id="rbr" src="https://img.redbull.com/images/c_crop,x_0,y_0,h_1080,w_1620/c_fill,w_1500,h_1000/q_auto,f_auto/redbullcom/2020/5/10/zhongldfe9bfwrx7mun9/alex-albon-virtual-f1-spain">
+        
+            <section id="speed-cal-sec">
+                <label for="speed"><b>Enter the speed in <i>km/h</i></b></label>
+                <input type="text" id="speed">
+                <button id="btn1" onclick="convertSpeed()"><i>speedTrap</i></button>
+                <h3 id="mph"></h3>
+                <h3 id="mphH"></h3>
+            </section>
+        </div>
+
+        <div id="vid-wrapper">
+            <h3 id="vid-highlights">2020 Belgian GP: Highlights</h3>
+            
+            <div id="vid-div">
+                <video width="500" height="360" poster="https://media.gettyimages.com/photos/race-winner-lewis-hamilton-of-great-britain-and-mercedes-gp-second-picture-id1269697051" controls>
+                    <source src="bird.mp4" type="video/mp4">
+                  Your browser does not support the video tag.
+                  </video>
+            </div>
+
+            <div id="leader-board">
+                <h3><u><b>Standings</b></u></h3>
+                <dl>
+                    <dt>Lewis Hamilton</dt>
+                    <dd class="time">1:24:08.761 <i>s</i></dd>
+                    
+                    <dt>Valtteri Bottas</dt>
+                    <dd class="time">+8.448 <i>s</i></dd>
+                    
+                    <dt>Max Verstappen</dt>
+                    <dd class="time">+15.455 <i>s</i></dd>
+                </dl>
+                
+            </div>            
+        </div>
+        <div id="sel">
+            <h3>Which team do you think will win this year's <b><i>Constructors' Championship</i></b></h3>
+            <input type="radio" id="merc" name="winner" value="Mercedes Benz">
+            <label for="merc">Mercedes Benz</label></br>
+            <input type="radio" id="ferrari" name="winner" value="Ferrari">
+            <label for="female">Ferrari</label></br>
+            <input type="radio" id="rbr-btn" name="winner" value="Red Bull Racing">
+            <label for="rbr">Red Bull Racing</label></br>
+            <input type="radio" id="other" name="winner" value="Other">
+            <label for="other">Other</label>
+
+            </br></br>
+            <button id="btn2" onclick="winner()">Submit</button>
+            <h3 id="win-merc"></h3>
+            <h2 id="tx"></h2>
+
+        </div>
+
+        <div id="nav-links">
+            <nav class="nav">
+                <a id="official" href="https://www.formula1.com/">F1 Official Website</a> |
+                <a id="teams" href="https://www.formula1.com/en/teams.html">Official Teams</a> |
+                <a id="stand" href="https://www.formula1.com/en/results.html">Standings</a>
+            </nav>
+        </div>
+       
+    </body>
+</html>
